@@ -1,0 +1,38 @@
+
+# .clang-format configuration file
+
+Language: Cpp
+
+# Indentation
+IndentWidth: 2
+TabWidth: 2
+UseTab: Never
+
+# Max line length
+ColumnLimit: 78
+
+# Blank lines
+MaxEmptyLinesToKeep: 1
+
+# Brace style
+BraceWrapping:
+  AfterClass: true
+  AfterFunction: true
+  SplitEmptyFunction: false
+  SplitEmptyRecord: false
+
+# Spaces around operators
+SpacesInAngles: false
+SpacesInParentheses: false
+SpacesInSquareBrackets: false
+SpacesBeforeTrailingComments: 1
+
+# Pointer and reference alignment
+PointerAlignment: Right
+DerivePointerAlignment: false
+
+# Indentation for control blocks
+BreakBeforeBraces: Allman
+
+# Newline at end of file
+InsertNewlineAtEOF: true
