@@ -1,9 +1,8 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/Silverhand/.oh-my-zsh"
+export ZSH="/Users/silverhand/.oh-my-zsh"
 # Path variables and configs
-export PATH="/usr/local/opt/llvm/bin:$PATH"
 export PATH="/usr/local/opt/curl/bin:$PATH"
 export PATH="/Users/silverhand/Library/Python/3.9/bin:$PATH"
 export MAKEFLAGS="-j8"
@@ -13,6 +12,8 @@ export MAKEFLAGS="-j8"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 # ZSH_THEME="agnoster"
 source /usr/local/opt/spaceship/spaceship.zsh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -73,11 +74,10 @@ HIST_STAMPS="mm/dd/yyyy"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions command-not-found safe-paste colored-man-pages sudo vscode auto-notify git-auto-fetch macos)
+plugins=(git command-not-found safe-paste colored-man-pages sudo vscode auto-notify git-auto-fetch macos)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-source /Users/Silverhand/.config/ExtensionForTerminal/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -103,7 +103,9 @@ alias zshrb="source ~/.zshrc"
 alias dns="dscacheutil -flushcache"
 # Complier shortcut
 alias clang++="clang++ -Oz -pedantic-errors -Weverything -Wno-poison-system-directories -Wthread-safety -Wno-c++98-compat -std=c++20 -o program"
-alias g++='g++ -o program'
+alias gcc="gcc-14"
+alias g++="g++-14"
+alias "g++-compile"='g++-14 -o program'
 
 # Remap the ls series command
 alias ls='lsd'
@@ -120,19 +122,19 @@ alias fresh="fetch && pull && push"
 alias status="git status"
 
 # Macros for fast jump folder
-alias pic="cd $HOME/Pictures/壁纸/The-Wallpaper-Collection"
+alias pic="cd $HOME/Pictures/The-Wallpaper-Collection"
 alias dev="cd $HOME/Developer/"
 alias ecs="cd $HOME/Developer/SourceRepostory/UCDavisCodeSpace/"
 alias markdown="cd '/Users/silverhand/Library/Mobile Documents/iCloud~md~obsidian/Documents/MarkDown Files'"
 # Remapping the plugin shortcut
 alias vim='nvim'
 alias vi='nvim'
-alias cat='bat'
 alias ff='fzf'
-
+alias man='tldr'
+alias top='btop'
+alias htop='btop'
 # Init Macros and configs
-eval $(thefuck --alias)
-alias init="fastfetch && rm -rf ai_overlay_tmp && toilet Silverhand && dns && ls -l"
+alias init="fastfetch && toilet Silverhand && dns && ls -l"
 
 # Redirect Brew list to brew leaves.
 brew() {
@@ -145,3 +147,4 @@ brew() {
 
 # ZSH initiates
 init
+

@@ -1,5 +1,17 @@
 [core]
 	excludesfile = /Users/silverhand/.gitignore
 [user]
-	name = TheRealMilesLee
-	email = grandtheftauto710@outlook.com
+	name = Hengyi Li
+	email = trdli@ucdavis.edu
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[url "git://"]
+	insteadOf = https://
+[color]
+    ui = auto
+[push]
+    default = simple
+[credential]
+    helper = store
+[init]
+    defaultBranch = main
