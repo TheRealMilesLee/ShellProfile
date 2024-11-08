@@ -1,64 +1,129 @@
-# Shell Profile config
+# Zsh Configuration Guide
 
-This is a list of my shell config file, including the zsh config and the VIM config.
-The ZSH config is in .zshrc file. Prerequest plug in oh-my-zsh, lsd, fzf, nvim, thefuck and bat. Please use homebrew to install those file.
+This repository contains a custom zsh configuration file, optimized for Oh My Zsh, custom path variables, and a streamlined setup for productivity.
 
-The shell theme I use is the starship, go goole it, and make sure you're using the hack font or nerd font otherwise the symbol would display incorrectly.
+## Table of Contents
+1. [Prerequisites](#prerequisites)
+2. [Installation](#installation)
+3. [Setting Up Neovim with LazyVim](#setting-up-neovim-with-lazyvim)
+4. [Applying the Nord Theme](#applying-the-nord-theme)
+5. [Zsh Plugins and Dependencies](#zsh-plugins-and-dependencies)
 
+## Prerequisites
+- **Zsh**: Ensure you have zsh installed on your system. Verify with:
+  ```bash
+  zsh --version
+  ```
+- **Oh My Zsh**: Required for managing themes and plugins.
+- **Homebrew** (macOS/Linux): Used for installing dependencies.
 
-## ZSHRC alias
-Keep in mind that I modified the command binding so *READ THIS CAREFULLY*
-```zsh
-eval "$(fzf --zsh)"
-alias zshrc="nvim ~/.zshrc"
-alias zshrb="source ~/.zshrc"
-alias dns="dscacheutil -flushcache"
-# Complier shortcut
-alias clang++="clang++ -Oz -pedantic-errors -Weverything -Wno-poison-system-directories -Wthread-safety -Wno-c++98-compat -std=c++20 -o program"
-alias g++='g++ -o program'
+## Installation
 
-# Remap the ls series command
-alias ls='lsd'
-alias l='ls -l'
-alias la='ls -a'
-alias lla='ls -la'
-alias lt='ls --tree'
-# Macros for git fetch
-alias update="echo 'performing update...' && brew update && brew upgrade && omz update && echo 'Cleaning up.....' && brew cleanup -s --prune=all && brew autoremove"
-alias fetch="git fetch"
-alias pull="git pull"
-alias push="git add . && git commit -m 'update' && git merge && git push"
-alias fresh="fetch && pull && push"
-alias status="git status"
-
-# Macros for fast jump folder
-alias pic="cd $HOME/Pictures/壁纸/The-Wallpaper-Collection"
-alias dev="cd $HOME/Developer/"
-alias ecs="cd $HOME/Developer/SourceRepostory/UCDavisCodeSpace/"
-alias markdown="cd '/Users/silverhand/Library/Mobile Documents/iCloud~md~obsidian/Documents/MarkDown Files'"
-# Remapping the plugin shortcut
-alias vim='nvim'
-alias vi='nvim'
-alias cat='bat'
-alias ff='fzf'
-
-# Init Macros and configs
-eval $(thefuck --alias)
-alias init="fastfetch && rm -rf ai_overlay_tmp && toilet Silverhand && dns && ls -l"
-
-# Redirect Brew list to brew leaves.
-brew() {
-  if [[ $1 == "list" ]]; then
-    command brew leaves "${@:2}"
-  else
-    command brew "$@"
-  fi
-}
-
-# ZSH initiates
-init
+### 1. Clone this Repository
+Clone or download the `.zshrc` file to your home directory:
+```bash
+git clone <repository-url> ~/.zsh
+cd ~/.zsh
 ```
-## What's in .Config Folder
-This folder contains the all the config file for the color scheme, ZSH extensions, theme, and nvim, you do not need to change it, it's being configured as
-open the box and ready to use type.
 
+### 2. Install Oh My Zsh
+Install Oh My Zsh by running:
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+### 3. Update the .zshrc File
+Copy the provided `.zshrc` file to your home directory:
+```bash
+cp .zshrc ~/.zshrc
+```
+Then, reload the configuration:
+```bash
+source ~/.zshrc
+```
+
+## Setting Up Neovim with LazyVim
+
+1. **Install Neovim**:
+   ```bash
+   brew install neovim
+   ```
+
+2. **Install LazyVim**:
+   ```bash
+   git clone https://github.com/LazyVim/starter ~/.config/nvim
+   ```
+   Launch Neovim to complete the LazyVim setup:
+   ```bash
+   nvim
+   ```
+
+3. **Configure Plugins**:
+   Modify `~/.config/nvim/init.lua` or `~/.config/nvim/lua/user/plugins.lua` as needed.
+
+## Applying the Nord Theme
+
+1. **Install Nord Vim Theme**:
+   Add the following to your Neovim config:
+   ```lua
+   use 'arcticicestudio/nord-vim'
+   vim.cmd('colorscheme nord')
+   ```
+
+2. **Apply Nord to Terminal**:
+   - **iTerm2** (macOS): Go to `Preferences > Profiles > Colors` and import the Nord theme.
+   - **GNOME Terminal**: Use [Nord GNOME Terminal](https://github.com/arcticicestudio/nord-gnome-terminal).
+
+## Zsh Plugins and Dependencies
+
+The `.zshrc` includes various plugins to enhance functionality. Install them as follows:
+
+1. **Spaceship Prompt**:
+   ```bash
+   brew install spaceship
+   ```
+   Add to `.zshrc`:
+   ```bash
+   source /usr/local/opt/spaceship/spaceship.zsh
+   ```
+
+2. **Syntax Highlighting**:
+   ```bash
+   brew install zsh-syntax-highlighting
+   ```
+   Add to `.zshrc`:
+   ```bash
+   source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+   ```
+
+3. **Autosuggestions**:
+   ```bash
+   brew install zsh-autosuggestions
+   ```
+   Add to `.zshrc`:
+   ```bash
+   source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+   ```
+
+4. **Additional Plugins**:
+   - **git**: Provides Git commands.
+   - **command-not-found**: Alerts when a command is missing.
+   - **safe-paste**: Prevents accidental pastes.
+   - **colored-man-pages**: Colors man pages.
+   - **sudo**: Suggests using sudo when a command fails.
+   - **vscode**: Shortcuts for VS Code.
+   - **auto-notify**: Notifies when long-running jobs are done.
+   - **git-auto-fetch**: Auto-fetches Git updates.
+   - **macos**: macOS-specific commands.
+
+Enable these plugins by adding them in the plugins section of `.zshrc`:
+```zsh
+plugins=(git command-not-found safe-paste colored-man-pages sudo vscode auto-notify git-auto-fetch macos)
+```
+
+5. **Other Paths**:
+   - **Python Path**: Adjust for your Python installation if needed.
+   - **Make Flags**: Enables parallel jobs, set as needed:
+     ```zsh
+     export MAKEFLAGS="-j8"
+     ```
