@@ -3,7 +3,7 @@ BasedOnStyle:    Google
 ColumnLimit:     78
 IndentWidth:     2
 UseTab:          Never
-BreakBeforeBraces: Attach
+BreakBeforeBraces: Allman
 AllowShortBlocksOnASingleLine: Empty
 AlwaysBreakAfterReturnType: None
 PointerAlignment: Left
@@ -41,12 +41,9 @@ MaxEmptyLinesToKeep: 1
 ReflowComments: false
 SpacesInAngles: false
 SpaceAfterLogicalNot: false
-SpaceBeforeParens: ControlStatements
 SpaceBeforeAssignmentOperators: true
 SpaceBeforeRangeBasedForLoopColon: true
 SpaceBeforeSquareBrackets: false
 SpaceBeforeCtorInitializerColon: true
 SpaceBeforeInheritanceColon: true
 SpaceBeforeCaseColon: false
-SpaceBeforeLambdaArrow: true
-SpaceBeforeTemplateKeyword: false
