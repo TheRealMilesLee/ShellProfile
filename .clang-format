@@ -1,38 +1,52 @@
-
-# .clang-format configuration file
-
-Language: Cpp
-
-# Indentation
-IndentWidth: 2
-TabWidth: 2
-UseTab: Never
-
-# Max line length
-ColumnLimit: 78
-
-# Blank lines
-MaxEmptyLinesToKeep: 1
-
-# Brace style
-BraceWrapping:
-  AfterClass: true
-  AfterFunction: true
-  SplitEmptyFunction: false
-  SplitEmptyRecord: false
-
-# Spaces around operators
-SpacesInAngles: false
-SpacesInParentheses: false
-SpacesInSquareBrackets: false
+Language:        Cpp
+BasedOnStyle:    Google
+ColumnLimit:     78
+IndentWidth:     2
+UseTab:          Never
+BreakBeforeBraces: Attach
+AllowShortBlocksOnASingleLine: Empty
+AlwaysBreakAfterReturnType: None
+PointerAlignment: Left
 SpacesBeforeTrailingComments: 1
-
-# Pointer and reference alignment
-PointerAlignment: Right
-DerivePointerAlignment: false
-
-# Indentation for control blocks
-BreakBeforeBraces: Allman
-
-# Newline at end of file
-InsertNewlineAtEOF: true
+SpacesInParentheses: false
+SpacesInConditionalStatement: false
+SpaceAfterCStyleCast: true
+SpaceBeforeParens: ControlStatements
+SpaceAfterTemplateKeyword: false
+AlignOperands: false
+AlignConsecutiveAssignments: false
+AlignConsecutiveDeclarations: false
+AlignConsecutiveMacros: false
+AlignTrailingComments: false
+AllowShortFunctionsOnASingleLine: None
+SortIncludes: false
+IncludeCategories:
+  - Regex: '^<.*\.h>'
+    Priority: 1
+  - Regex: '^<.*>'
+    Priority: 2
+  - Regex: '.*'
+    Priority: 3
+NamespaceIndentation: None
+AccessModifierOffset: -2
+ConstructorInitializerIndentWidth: 2
+BinPackArguments: false
+BinPackParameters: false
+BreakBeforeBinaryOperators: NonAssignment
+BreakBeforeTernaryOperators: true
+Cpp11BracedListStyle: false
+EmptyLineBeforeAccessModifier: Always
+IndentPPDirectives: AfterHash
+MaxEmptyLinesToKeep: 1
+ReflowComments: false
+SpacesInAngles: false
+SpaceAfterLogicalNot: false
+SpaceBeforeParens: ControlStatements
+SpaceBeforeAssignmentOperators: true
+SpaceBeforeRangeBasedForLoopColon: true
+SpaceBeforeSquareBrackets: false
+SpaceBeforeCtorInitializerColon: true
+SpaceBeforeInheritanceColon: true
+SpaceBeforeCaseColon: false
+SpaceBeforeLambdaArrow: true
+SpaceBeforeTemplateKeyword: false
